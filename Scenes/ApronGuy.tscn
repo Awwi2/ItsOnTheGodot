@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmvs7ky14n74g"]
+
+[ext_resource type="Texture2D" uid="uid://bq3vtjxnr8r1t" path="res://Assets/Sprites/bearded-walk.png" id="1_5mtpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8by8q"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(0, 0, 40, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vu55"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(40, 0, 40, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enwym"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(80, 0, 40, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eet20"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(120, 0, 40, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42ypt"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(160, 0, 40, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liwbe"]
+atlas = ExtResource("1_5mtpy")
+region = Rect2(200, 0, 40, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2lts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8by8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vu55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enwym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eet20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42ypt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liwbe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmrot"]
+size = Vector2(20, 44)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k2lts")
+frame_progress = 0.586625
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_kmrot")

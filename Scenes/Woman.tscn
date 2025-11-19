@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmietxrnywn6g"]
+
+[ext_resource type="Texture2D" uid="uid://q8q3ffpi1g8c" path="res://Assets/Sprites/woman-walk.png" id="1_dajvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa7me"]
+size = Vector2(23, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsfu0"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(0, 0, 37, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysdpk"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(37, 0, 37, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg68a"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(74, 0, 37, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro7gg"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(111, 0, 37, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25p7o"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(148, 0, 37, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u20f2"]
+atlas = ExtResource("1_dajvb")
+region = Rect2(185, 0, 37, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nr45i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsfu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysdpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg68a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro7gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25p7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u20f2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_pa7me")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nr45i")
+frame_progress = 0.317764
