@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var rand = RandomNumberGenerator.new()
-	if rand.randf() < 0.05:
+	if rand.randf() < 0.05 :
 		var instance = HAT_MAN.instantiate()
 		add_child(instance)
 	

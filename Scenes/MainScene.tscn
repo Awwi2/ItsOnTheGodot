@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctk7uy4qxbcoh"]
+[gd_scene load_steps=14 format=3 uid="uid://ctk7uy4qxbcoh"]
 
 [ext_resource type="Script" uid="uid://dxrbwoxfsr821" path="res://Scenes/main_manager.gd" id="1_f140w"]
 [ext_resource type="Texture2D" uid="uid://bnr8mueckm2d2" path="res://Assets/Sprites/World/casion_background.png" id="1_h0au7"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://o20qpd00vyrb" path="res://Assets/Sprites/World/casion_building_foreground.png" id="5_4wr5m"]
 [ext_resource type="Texture2D" uid="uid://d6vffykhppwf" path="res://Assets/Sprites/World/casion_floor.png" id="6_cdxlx"]
 [ext_resource type="Script" uid="uid://cknq2mgerncms" path="res://Scenes/npc_spawner.gd" id="7_eyu76"]
+[ext_resource type="Texture2D" uid="uid://b8aplqrrc6gu5" path="res://Assets/Sprites/UI/money_sprite.png" id="8_8ju71"]
+[ext_resource type="Texture2D" uid="uid://0jpjqo4vqm6x" path="res://Assets/Sprites/UI/money_per_customer_sprite.png" id="9_xb4mg"]
+[ext_resource type="Texture2D" uid="uid://b8hvcls7hnvdc" path="res://Assets/Sprites/UI/popularity_sprite.png" id="10_6t1o7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1cmg"]
 size = Vector2(551, 32)
@@ -46,17 +49,39 @@ collision_mask = 3
 position = Vector2(7.5, -6)
 shape = SubResource("RectangleShape2D_h1cmg")
 
+[node name="Info Sprites" type="Node" parent="Background"]
+
+[node name="MoneySprite" type="Sprite2D" parent="Background/Info Sprites"]
+texture_filter = 1
+position = Vector2(-122, 65)
+texture = ExtResource("8_8ju71")
+
+[node name="MoneyPerCustomerSprite" type="Sprite2D" parent="Background/Info Sprites"]
+texture_filter = 1
+position = Vector2(-31, 65)
+texture = ExtResource("9_xb4mg")
+
+[node name="PopularitySprite" type="Sprite2D" parent="Background/Info Sprites"]
+texture_filter = 1
+position = Vector2(67, 65)
+texture = ExtResource("10_6t1o7")
+
 [node name="NPCSpawner" type="Node2D" parent="."]
 position = Vector2(-170, 25)
 script = ExtResource("7_eyu76")
 
 [node name="EntranceHitbox" type="Area2D" parent="NPCSpawner"]
 position = Vector2(190, 5)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCSpawner/EntranceHitbox"]
 shape = SubResource("RectangleShape2D_bq88l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -5.575)
+zoom = Vector2(1.15, 1.15)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="customer_entered" from="NPCSpawner" to="." method="_on_npc_spawner_customer_entered"]
 [connection signal="body_entered" from="NPCSpawner/EntranceHitbox" to="NPCSpawner" method="_on_entrance_hitbox_body_entered"]
