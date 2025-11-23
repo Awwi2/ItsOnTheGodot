@@ -14,3 +14,9 @@ config/name="ItsOnTheHouse"
 run/main_scene="res://Scenes/MainScene.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=208
+window/stretch/scale=4.0
